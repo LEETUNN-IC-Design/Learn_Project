@@ -1,0 +1,5 @@
+hello
+*.out
+*.o
+*.vcd
+*.log
