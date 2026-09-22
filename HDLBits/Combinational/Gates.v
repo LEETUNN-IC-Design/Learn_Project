@@ -1,3 +1,4 @@
+`default_nettype none
 module top_module( 
     input a, b,
     output out_and,
