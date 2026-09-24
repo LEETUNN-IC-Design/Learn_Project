@@ -6,8 +6,7 @@ module top_module (
     output wire [15:0] sum
 );
 
-    wire [3:0] cout_wire; // 4 đường dây truyền bit nhớ giữa 4 con BCD
-    genvar i;
+    wire [3:0] cout_wire; 
 
     generate 
         for (i = 0; i < 4; i = i + 1) begin : adder_gen
@@ -32,7 +31,7 @@ module top_module (
         end
     endgenerate
 
-    // Bit nhớ tràn cuối cùng của con thứ 3 chính là cout của module
+    // 
     assign cout = cout_wire[3];
 
 endmodule
