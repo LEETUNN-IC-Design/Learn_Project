@@ -7,7 +7,7 @@ module top_module (
 );
 
     wire [3:0] cout_wire; 
-
+    genvar i;
     generate 
         for (i = 0; i < 4; i = i + 1) begin : adder_gen
             if (i == 0) begin
