@@ -6,7 +6,7 @@
 ## 1. Tổng quan
 
 ### 1.1. Combinational Logic là gì?
-Mạch tổ hợp (Combinational Logic) là lớp mạch số cơ bản nhất, trong đó ngõ ra chỉ phụ thuộc vào trạng thái của ngõ vào tại thời điểm hiện tại. Nó thực hiện các hàm logic hoặc toán học ngay lập tức (bỏ qua trễ vật lý) mà không cần nhớ trạng thái cũ.
+Mạch tổ hợp (Combinational Logic) là lớp mạch số cơ bản nhất, trong đó ngõ ra chỉ phụ thuộc vào trạng thái của ngõ vào tại thời điểm hiện tại. Nó thực hiện các hàm logic hoặc toán học ngay lập tức (bỏ qua trễ vật lý ) mà không cần nhớ trạng thái cũ.
 
 ### 1.2. Đặc điểm cốt lõi
 * **Không có memory (bộ nhớ):** Không lưu trữ thông tin về quá khứ.
@@ -18,7 +18,7 @@ Mạch tổ hợp (Combinational Logic) là lớp mạch số cơ bản nhất, 
 | :--- | :--- | :--- |
 | **Phụ thuộc ngõ ra** | Chỉ Input hiện tại. | Input hiện tại + State (Trạng thái) quá khứ. |
 | **Phần tử đặc trưng**| Logic Gates, MUX, Adder, Decoder. | D Flip-Flop, Register, Latch. |
-| **Xung nhịp (Clock)** | Không dùng (Asynchronous). | Hoạt động theo Clock (Synchronous). |
+| **Xung nhịp (Clock)** | Không dùng clock (Asynchronous). | Hoạt động theo Clock (Synchronous). |
 
 ### 1.4. Tại sao Combinational Logic quan trọng đối với RTL Design?
 Mọi con chip (CPU, GPU, FPGA) đều tuân theo mô hình: 
@@ -225,7 +225,7 @@ assign mux_in[1] = 1'b0;
 
 * So sánh 2 vector A và B.
 * **Equality:** `assign is_equal = (A == B);` (Bản chất phần cứng là mảng cổng XNOR).
-* **Magnitude:** Lớn hơn (`>`), Nhỏ hơn (`<`).
+* **Magnitude:** Lớn hơn (`>`), Nhỏ hơn (`<`). 
 
 ---
 
@@ -304,10 +304,9 @@ Sự khác biệt cực kỳ quan trọng giữa Arithmetic Signed và Unsigned.
 ## 18. ALU (Arithmetic Logic Unit)
 
 *(Đã chạm tới/Mô hình mental)*
-
-* **Mental model:** ALU = Mạch tổng hợp đa chức năng (Add, Sub, AND, OR) kết hợp với một khối **MUX khổng lồ** ở đầu ra.
+* **Mental model:** ALU = Mạch tổng hợp đa chức năng (Add, Sub, AND, OR) kết hợp với một khối **MUX khổng lồ** ở đầu ra. 
 * Tín hiệu Control/Select của ALU thực chất là chân Select của MUX để chọn kết quả của phép toán nào được đưa ra ngoài.
-
+ALU bao nhiêu bit phụ thuộc vào độ rộng của đầu vào.
 ---
 
 ## 19. Combinational Logic trong Verilog
@@ -331,12 +330,11 @@ Sự khác biệt cực kỳ quan trọng giữa Arithmetic Signed và Unsigned.
 ### 19.4 for loop & Indexed Part-Select (`[base +: width]`)
 
 * `[base +: width]`: Cắt một vector với độ rộng không đổi. Vượt qua giới hạn không cho phép biến động ở cả 2 đầu mút của Verilog. Cực kỳ mạnh trong mạch slicing dữ liệu.
-* `generate for`: Đúc (instantiate) phần cứng lặp đi lặp lại (như nối chuỗi RCA).
+* `generate for`: Đúc (instantiate) phần cứng lặp đi lặp lại (như nối chuỗi Ripple Carry Adder).
 
 ### 19.5 Blocking assignment (`=`)
 
 * Trong `always @(*)`, mạch tổ hợp dùng `=`, gán lập tức và tuần tự (về mặt thuật toán) để tạo thành luồng data flow tổ hợp tĩnh.
-
 ---
 
 ## 20. Combinational RTL Coding Rules (Checklist)

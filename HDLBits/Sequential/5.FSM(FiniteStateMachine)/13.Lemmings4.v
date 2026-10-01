@@ -14,6 +14,7 @@ module top_module(
     parameter LEFT=0, RIGHT=1, LEFT_FALL=2, RIGHT_FALL=3, RIGHT_DIG=4 , LEFT_DIG=5, SPLAT =6  ;
     reg[4:0] cnt;
     reg [2:0] state, next_state; 
+//========================================================================================
     always @(*) begin
         next_state = state;
         case (state) 
@@ -73,6 +74,7 @@ module top_module(
             default: next_state=LEFT;
         endcase
     end
+//========================================================================================
     always @(*) begin
         case (state) 
             LEFT :{walk_left,walk_right,digging ,aaah} =4'b1000; 
@@ -94,12 +96,14 @@ module top_module(
             default:{walk_left,walk_right,digging,aaah} =4'b1000;
         endcase
     end
+//========================================================================================
     always @(posedge clk, posedge areset) begin
         if (areset) begin
             state<=LEFT;
             cnt<=0;
         end else begin 
         state<=next_state;  
+
         case (state) 
             LEFT:cnt<=0;
             RIGHT:cnt<=0;

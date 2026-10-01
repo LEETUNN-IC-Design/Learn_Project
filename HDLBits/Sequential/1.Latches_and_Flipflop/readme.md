@@ -331,7 +331,7 @@ end
 * **Cơ chế suy diễn:** [General concept]
 Trong khối tổ hợp `always @(*)`, nếu một biến không được gán giá trị trong **tất cả mọi nhánh rẽ điều kiện** (thiếu `else` trong `if`, thiếu `default` trong `case`):
 
-$$\text{Không gán giá trị} \longrightarrow \text{Biến phải giữ lại giá trị cũ} \longrightarrow \text{Mạch tổ hợp không tự nhớ được} \longrightarrow \text{Trình tổng hợp chèn thêm Latch vật lý}$$
+$$\text{Không gán giá trị} =====> text{Biến phải giữ lại giá trị cũ} =====> text{Mạch tổ hợp không tự nhớ được}=====> text{Trình tổng hợp chèn thêm Latch vật lý}$$
 
 
 * **Nguy cơ trong thiết kế:** [General concept]
